@@ -1,5 +1,18 @@
 {
   "library": {
-    "books": {}
+    "books": {
+      "f1062c76d0d6423aaf8d7608755df5d4": {
+        "author": "s",
+        "title": "s",
+        "year": "s",
+        "status": "в наличии"
+      },
+      "b6c12622b7c44ba298e38e132f0789ee": {
+        "author": "p",
+        "title": "a",
+        "year": "s",
+        "status": "в наличии"
+      }
+    }
   }
 }

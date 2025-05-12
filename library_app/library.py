@@ -1,7 +1,7 @@
 import uuid
 from wsgiref.validate import validator
-
 from .db import Session
+from .crud import crud
 
 class LibraryApp:
     '''
@@ -15,25 +15,25 @@ class LibraryApp:
         title = title
         author = author
         year = year
-        #return crud.book_add(self.session, book_id, title, author, year)
+        return crud.book_add(self.session, book_id, title, author, year)
 
     def book_list(self):
-        #books = crud.booklist(self.session)
-        #return books
+        books = crud.book_list(self.session)
+        return books
 
-    def book_delete(self, book_id):
+    #def book_delete(self, book_id):
         #book_id = validators.validate_book_id(self.session, book_id)
         #crud.get_book_by_id(self.session, book_id)
         #crud.book_delete(self.session, book_id)
 
-    def get_book_status(self, book_id):
+    #def get_book_status(self, book_id):
         #book_id = validators.validate_book_id(self.session, book_id)
-        book_status = crud.get_book_status(self.session, book_id)
-        return book_status
+        # book_status = crud.get_book_status(self.session, book_id)
+        #return book_status
 
     def find_book_by_author(self, author):
-        books = crud.get_book_by_title
-
+        books = crud.get_books_by_author(session = self.session, author = author)
+        return books
     def get_book_by_title(self, title):
-        books = crud.get_book_by_title
+        books = crud.get_book_by_title()
         return books
