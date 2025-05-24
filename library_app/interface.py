@@ -9,6 +9,8 @@ class LibraryInterface:
                            "3. Show a quantity of books \n"
                            "4. Search a quantity of books \n"
                            "5. Search book by author \n"
+                           "6. Search book by title \n"
+                           "7. Show the status \n"
                            "----------------------------\n"
                            "0. Leave the program"
 
@@ -45,8 +47,15 @@ class LibraryInterface:
                 case '5':
                     self.find_books_by_author()
                     self.print_main_menu()
-                case '4':
-                    pass
+                case '6':
+                    self.get_books_by_title()
+                    self.print_main_menu()
+                case '3':
+                    self.show_the_quantity_books()
+                    self.print_main_menu()
+                case '7':
+                    self.show_the_status()
+                    self.print_main_menu()
 
     def print_books(self, books):
         for book in books:
@@ -74,6 +83,26 @@ class LibraryInterface:
             self.print_books(books)
         else:
             print('nothing found')
+
+    def get_books_by_title(self):
+        title = input('Write title of book:\n >>>')
+        books = self.library.get_book_by_title(title=title)
+        if books:
+            self.print_books(books)
+        else:
+            print('nothing found')
+
+    def show_the_quantity_books(self):
+        books = self.library.show_the_quantity_books()
+        print(books)
+
+    def show_the_status(self):
+        title = input('Введите название книги:\n >>> ')
+        status = self.library.show_the_status(title)
+        print(f'Статус книги: {status}')
+
+
+
 
 
 

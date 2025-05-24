@@ -35,5 +35,12 @@ class LibraryApp:
         books = crud.get_books_by_author(session = self.session, author = author)
         return books
     def get_book_by_title(self, title):
-        books = crud.get_book_by_title()
+        books = crud.get_book_by_title(session = self.session, title = title)
         return books
+
+    def show_the_quantity_books(self):
+        books = crud.show_the_quantity_books(self.session)
+        return books
+
+    def show_the_status(self, title):
+        return crud.show_the_status(self.session, title)
